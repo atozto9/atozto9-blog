@@ -15,7 +15,16 @@
 
     {{- else if eq $comment.type "gitalk" }}
 
-    {{- else if eq $comment.type "valine" }}
+    {{- else if eq $comment.type "utterances" }}
+    <script src="https://utteranc.es/client.js"
+        repo={{$comment.utterances.repo}}
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+    </script>
+    {{- else }}
+    Error{{$comment.type}}
     <div id="vcomments"></div>
     {{- end }}
 </section>

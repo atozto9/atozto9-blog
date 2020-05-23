@@ -129,7 +129,7 @@ params:
 
   # Comment
   comment:
-    type: # type disqus/gitalk/valine 启用哪种评论系统
+    type: utterances
     disqus: your_disqus_name # enter disqus shortname here
     gitalk: # gitalk. https://gitalk.github.io/
       owner: #必须. GitHub repository 所有者，可以是个人或者组织。
@@ -137,7 +137,8 @@ params:
       repo:  #必须. GitHub repository.
       ClientID: #必须. GitHub Application Client ID.
       ClientSecret: #必须. GitHub Application Client Secret.
-
+    utterances:
+        repo: atozto9/atozto9-blog
   # PV
   pv:
     busuanzi:

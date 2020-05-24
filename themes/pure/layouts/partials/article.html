@@ -11,12 +11,17 @@
       <div class="article-meta">
         {{ .Scratch.Set "class_name" "article-date" }}
         {{- partial "post/date.html" . }}
-        {{- partial "post/category.html" . }}
-        {{- partial "post/tag.html" . }}
-        {{- partial "post/pv.html" . }}
-        <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="{{ .RelPermalink }}#comments"
-            class="article-comment-link">{{T "article_comments" }}</a></span>
-        {{- partial "post/wc.html" . }}
+        
+        {{ if ne .Params.layout "about" }} 
+            {{- partial "post/category.html" . }}
+            {{- partial "post/tag.html" . }}
+            {{- partial "post/pv.html" . }}
+        
+            <span class="post-comment"><i class="icon icon-comment"></i>&nbsp;<a href="{{ .RelPermalink }}#comments"
+                class="article-comment-link">{{T "article_comments" }}</a></span>
+
+            {{- partial "post/wc.html" . }}
+        {{ end }}
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -26,7 +31,10 @@
       <!-- {{- partial "post/copyright.html" . }} -->
     </div>
   </article>
-  {{- partial "post/comment.html" . }}
+
+  {{ if ne .Params.layout "about" }}
+    {{- partial "post/comment.html" . }}
+  {{ end }}
 </div>
 {{- partial "post/nav.html" . }}
 {{- partial "post/donate.html" . }}

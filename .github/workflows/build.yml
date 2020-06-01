@@ -22,5 +22,10 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.TOKEN }}
+        deploy_key: ${{ secrets.TOKEN }}
+        external_repository: atozto9/atozto9.github.io
+        publish_branch: master
         publish_dir: ./public
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: ${{ github.event.head_commit.message }}
